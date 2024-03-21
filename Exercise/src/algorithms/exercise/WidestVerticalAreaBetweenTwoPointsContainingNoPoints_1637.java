@@ -16,4 +16,26 @@ public class WidestVerticalAreaBetweenTwoPointsContainingNoPoints_1637 {
         }
         return maxWidth;
     }
+
+    public int maxWidthOfVerticalArea2(int[][] points) {
+        int size = points.length;
+        int[] nums = new int[size];
+
+        for (int i = 0; i < size; i++) {
+            nums[i] = points[i][0];
+        }
+
+        Arrays.sort(nums);
+
+        int maxWidth = 0;
+
+        for (int i = 1; i < size; i++) {
+            int width = nums[i] - nums[i - 1];
+            if (width > maxWidth) {
+                maxWidth = width;
+            }
+        }
+
+        return maxWidth;
+    }
 }
